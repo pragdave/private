@@ -10,6 +10,8 @@ defmodule Private do
 
   
   @doc """
+  Define private functions:
+
       private do
         def ...
         defp ...
@@ -17,6 +19,8 @@ defmodule Private do
 
   All functions in the block will be defined as public if Mix.env is `:test`, 
   private otherwise.  `def` and `defp` are effectively the same in the block.
+
+  See the documentation for the `Private` module for more information.
   """
 
   defmacro private(do:  block) do
@@ -26,6 +30,8 @@ defmodule Private do
   end
 
   @doc false && """
+  Define private functions:
+
       private(env) do
         def ...
         defp ...
