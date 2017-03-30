@@ -4,15 +4,15 @@ defmodule Private.Mixfile do
   @deps     [
     { :ex_doc, ">= 0.0.0", only: :dev}
   ]
-  @version "0.1.0"
-  @name    :private
+  @version    "0.1.1"
+  @name       :private
   @source_url "https://github.com/pragdave/private"
   
   @doc_info [
-   name: "MyApp",
+   name:      "Private",
    source_url: @source_url,
     docs: [
-      main: "MyApp", # The main page in the docs
+      main:   "Private", # The main page in the docs
       extras: ["README.md"]
     ]
   ]
