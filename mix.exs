@@ -29,7 +29,7 @@ defmodule Private.Mixfile do
   defp package do
     [
       name:        @name,
-      files:       ["lib", "priv", "mix.exs", "README.me", "LICENSE.md"],
+      files:       ["lib", "mix.exs", "README.md", "LICENSE.md"],
       maintainers: ["Eric Meadows-Jönsson", "José Valim"],
       licenses:    ["Apache 2.0"],
       links:       %{"GitHub" => "https://github.com/pragdave/private"},
