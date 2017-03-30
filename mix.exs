@@ -1,7 +1,9 @@
 defmodule Private.Mixfile do
   use Mix.Project
 
-  @deps     []
+  @deps     [
+    { :ex_doc, ">= 0.0.0", only: :dev}
+  ]
   @version "0.1.0"
   @name    :private
 

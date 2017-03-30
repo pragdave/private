@@ -30,7 +30,7 @@ private otherwise.
 
 All functions in the `private` block will be defined as private
 unless the Mix environment is `:test`. So, in the test environment,
-`def` will be left unchanged, and `defp` will be changed to `def.
+`def` will be left unchanged, and `defp` will be changed to `def`.
 
 In all other environments, `def` will be changed to `defp` and `defp` will
 be left unchanged.
