@@ -6,7 +6,17 @@ defmodule Private.Mixfile do
   ]
   @version "0.1.0"
   @name    :private
-
+  @source_url "https://github.com/pragdave/private"
+  
+  @doc_info [
+   name: "MyApp",
+   source_url: @source_url,
+    docs: [
+      main: "MyApp", # The main page in the docs
+      extras: ["README.md"]
+    ]
+  ]
+                                 
   ############################################################
   
   def project do
@@ -19,8 +29,8 @@ defmodule Private.Mixfile do
       package:  package(),
       description:     "Make private functions public if Mix.env is :test",
       build_embedded:  in_production,
-      start_permanent: in_production,
-    ]
+      start_permanent: in_production
+    ] ++  @doc_info
   end
 
   def application do
@@ -32,9 +42,9 @@ defmodule Private.Mixfile do
     [
       name:        @name,
       files:       ["lib", "mix.exs", "README.md", "LICENSE.md"],
-      maintainers: ["Eric Meadows-Jönsson", "José Valim"],
+      maintainers: ["Dave Thomas <dave@pragdave.me>"],
       licenses:    ["Apache 2.0"],
-      links:       %{"GitHub" => "https://github.com/pragdave/private"},
+      links:       %{"GitHub" => @source_url},
     ]
   end  
 end

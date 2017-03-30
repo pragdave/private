@@ -32,41 +32,36 @@ defmodule Private do
   end
 
           
-  def do_private(block, _env = :test) do
+  defp do_private(block, _env = :test) do
     make_defs_public(block)
   end
 
-  def do_private(block, _env) do
+  defp do_private(block, _env) do
     make_defs_private(block)
   end
   
   
-  def make_defs_private(block) do
+  defp make_defs_private(block) do
     Macro.traverse(block, nil, &make_private/2, &identity/2)
   end
 
-  def make_defs_public(block) do
+  defp make_defs_public(block) do
     Macro.traverse(block, nil, &make_public/2, &identity/2)
   end
 
-  def make_private({:def, meta, code}, acc) do
+  defp make_private({:def, meta, code}, acc) do
     { {:defp, meta, code}, acc }
   end
   
-  def make_private(ast, acc), do: identity(ast, acc)
+  defp make_private(ast, acc), do: identity(ast, acc)
 
-  def make_public({:defp, meta, code}, acc) do
+  defp make_public({:defp, meta, code}, acc) do
     { {:def, meta, code}, acc }
   end
   
-  def make_public(ast, acc), do: identity(ast, acc)
+  defp make_public(ast, acc), do: identity(ast, acc)
   
-  def identity(ast, acc) do
+  defp identity(ast, acc) do
     { ast, acc }
-  end
-
-
-  def running_in_test() do
-    Mix.env == :test
   end
 end
