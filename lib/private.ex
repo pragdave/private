@@ -19,15 +19,25 @@ defmodule Private do
   private otherwise.  `def` and `defp` are effectively the same in the block.
   """
 
-  defmacro private(env, do:  block) do
-    quote do
-      unquote(do_private(block, env))
-    end
-  end
-
   defmacro private(do:  block) do
     quote do
       unquote(do_private(block, Mix.env))
+    end
+  end
+
+  @doc false && """
+      private(env) do
+        def ...
+        defp ...
+      end
+
+  All functions in the block will be defined as public if env is `:test`, 
+  private otherwise. This is only provided for my own testing.
+  """
+
+  defmacro private(env, do:  block) do
+    quote do
+      unquote(do_private(block, env))
     end
   end
 
