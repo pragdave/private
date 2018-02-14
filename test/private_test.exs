@@ -61,7 +61,7 @@ defmodule PrivateTest do
       
       def a(), do: nil
       
-      private :dev do
+      private(:dev) do
         def b(_a), do: nil
         defp c(_a, _b), do: nil
       end
