@@ -25,7 +25,11 @@ defmodule Private do
 
   defmacro private(do:  block) do
     quote do
-      unquote(do_private(block, Mix.env))
+      if Code.ensure_loaded?(Mix) do
+        unquote(do_private(block, Mix.env))
+      else
+        unquote(block)
+      end
     end
   end
 
