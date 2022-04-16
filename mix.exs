@@ -4,7 +4,7 @@ defmodule Private.Mixfile do
   @deps     [
     { :ex_doc, ">= 0.0.0", only: :dev}
   ]
-  @version    "0.1.1"
+  @version    "0.1.2"
   @name       :private
   @source_url "https://github.com/pragdave/private"
   

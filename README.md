@@ -40,7 +40,7 @@ to `defp` and `defp` will be left unchanged.
 
 ```elixir
 @deps [
-  private: "> 0.0.0"
+  { private: "> 0.0.0" ],
 ]
 ```
 
