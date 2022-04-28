@@ -54,6 +54,31 @@ defmodule PrivateTest do
       assert Two.privates == [ b: 1, c: 2, e: 0 ]
     end
   end
-  
-  
+
+  describe "in dev mode" do
+    defmodule Three do
+      use Private
+      
+      def a(), do: nil
+      
+      private(:dev) do
+        def b(_a), do: nil
+        defp c(_a, _b), do: nil
+      end
+      
+      def  d(), do: e()
+      defp e(), do: d()
+
+      @publics Module.definitions_in(__MODULE__, :def) |> Enum.sort
+      def publics, do: @publics
+
+      @privates Module.definitions_in(__MODULE__, :defp) |> Enum.sort
+      def privates, do: @privates
+    end
+    
+    test "module has all private functions public" do
+      assert Three.publics  == [ a: 0, b: 1, c: 2, d: 0 ]
+      assert Three.privates == [ e: 0 ]
+    end
+  end
 end

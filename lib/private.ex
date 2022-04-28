@@ -51,6 +51,9 @@ defmodule Private do
     end
   end
 
+  defp do_private(block, _env = :dev) do
+    make_defs_public(block)
+  end
           
   defp do_private(block, _env = :test) do
     make_defs_public(block)
