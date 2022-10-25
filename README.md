@@ -9,24 +9,25 @@ calls to the public API.
 that they are exposed when the Mix environment is `:test`, and
 private otherwise.
 
-      defmodule MyMod do
-        use Private
+```elixir
+defmodule MyMod do
+  use Private
 
-        def api1() do ...
-        def api2() do ...
+  def api1() do ...
+  def api2() do ...
 
-        private do
-          def helper1() do...
-          def helper2() do...
-        end
+  private do
+    def helper1() do...
+    def helper2() do...
+  end
 
-        def api3() do ...
+  def api3() do ...
 
-        private do
-          defp helper3() do...
-        end
-     end
-
+  private do
+    defp helper3() do...
+  end
+end
+```
 
 All functions in the `private` block will be defined as private
 unless the Mix environment is `:test`. 
